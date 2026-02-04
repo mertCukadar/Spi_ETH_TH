@@ -79,3 +79,20 @@ void sensor_read_task(void *pvParameters) {
         vTaskDelay(pdMS_TO_TICKS(5000)); // Read every 5 seconds
     }
 }
+
+
+//aht10 read task
+void read_aht10_task(void *pvParameters){
+    aht10_data_t *param = (aht10_data_t *)pvParameters;
+
+    while(1){
+
+        aht10_get_event(param);
+
+        vTaskDelay(pdMS_TO_TICKS(1000));
+
+
+    }
+
+
+}

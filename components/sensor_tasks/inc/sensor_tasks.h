@@ -28,6 +28,6 @@ extern QueueHandle_t sensor_data_queue;
 esp_err_t sensor_tasks_init(void);
 void sensor_read_task(void *pvParameters);
 
-
+void read_aht10_task(void *pvParameters);
 
 #endif //SENSOR_TASKS_H
