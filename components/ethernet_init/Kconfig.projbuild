@@ -1,0 +1,57 @@
+menu "Ethernet Initialization Component Configuration"
+
+    orsource "$IDF_PATH/examples/common_components/env_caps/$IDF_TARGET/Kconfig.env_caps"
+
+    config SPI_TH_ETHERNET_INIT
+        bool "Enable Ethernet Initialization Component"
+        default y
+        help
+            Enable this option to include the Ethernet initialization component in your project.
+
+    if SPI_TH_ETHERNET_INIT
+
+        config W5500_ETHERNET_CONTROLLER
+            bool "Use W5500 Ethernet Controller"
+            default y
+            help
+                Select this option if you are using the W5500 Ethernet controller in your project.
+
+        config ETH_SPI_CLK_GPIO
+            int "Ethernet SPI Clock Pin"
+            default 18
+            help
+                Specify the GPIO pin number used for the SPI clock line for the Ethernet controller.
+
+        config ETH_SPI_MOSI_GPIO
+            int "Ethernet SPI MOSI Pin"
+            default 23
+            help
+                Specify the GPIO pin number used for the SPI MOSI line for the Ethernet controller. 
+
+        config ETH_SPI_MISO_GPIO
+            int "Ethernet SPI MISO Pin"
+            default 19
+            help
+                Specify the GPIO pin number used for the SPI MISO line for the Ethernet controller.
+
+        config ETH_SPI_CS_GPIO
+            int "Ethernet SPI Chip Select Pin"
+            default 5
+            help
+                Specify the GPIO pin number used for the SPI chip select line for the Ethernet controller.
+        
+        config ETH_SPI_HOST
+            int "Ethernet SPI Host"
+            range 1 2
+            default 1
+            help
+                Specify the SPI host number used for the Ethernet controller (1 or 2).
+    
+        config ETH_SPI_CLOCK_SPEED_HZ
+            int "Ethernet SPI Clock Speed (MHz)"
+            default 16
+            help
+                Specify the SPI clock speed in MHz for the Ethernet controller.
+
+            endif # SPI_TH_ETHERNET_INIT
+endmenu
