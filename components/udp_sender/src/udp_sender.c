@@ -15,7 +15,7 @@
 static const char *TAG = "udp_sender";
 
 // Configure destination here; change port if needed
-#define UDP_SERVER_IP "192.168.1.10"
+#define UDP_SERVER_IP "192.168.1.104"
 #define UDP_SERVER_PORT 5005
 #define SEND_INTERVAL_MS 5000
 
@@ -41,6 +41,7 @@ void udp_sender_task(void *pvParameters)
         }
     }
     ESP_LOGI(TAG, "Ethernet interface is up! Starting to send data.");
+    ESP_LOGI(TAG, "Destination: %s:%d", UDP_SERVER_IP, UDP_SERVER_PORT);
 
     while (1) {
         if (sock < 0) {
