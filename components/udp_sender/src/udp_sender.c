@@ -15,7 +15,7 @@
 static const char *TAG = "udp_sender";
 
 // Configure destination here; change port if needed
-#define UDP_SERVER_IP "192.168.1.104"
+#define UDP_SERVER_IP "<server_ip_here>"
 #define UDP_SERVER_PORT 5005
 #define SEND_INTERVAL_MS 5000
 
