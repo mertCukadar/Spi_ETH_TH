@@ -17,7 +17,7 @@ static const char *TAG = "udp_sender";
 // Configure destination here; change port if needed
 #define UDP_SERVER_IP "<server_ip_here>"
 #define UDP_SERVER_PORT 5005
-#define SEND_INTERVAL_MS 5000
+#define SEND_INTERVAL_MS 1000 * 60 * 5
 
 void udp_sender_task(void *pvParameters)
 {
