@@ -1,10 +1,12 @@
-    # SPI_TH: ESP32 Temperature & Humidity Sensor with Ethernet UDP Streaming
+# SPI_TH: ESP32 Temperature & Humidity Sensor with Ethernet UDP Streaming
 
-**Author:** Mert Kaan
+**Author:** Mert Kaan Çukadar
 
 ## Overview
 
 SPI_TH is an IoT project built on the ESP32C3 microcontroller that reads temperature and humidity data from an AHT10 sensor via I2C and streams the data over Ethernet using UDP protocol. The system is designed for real-time environmental monitoring with low-latency data transmission to a remote PC or server.
+
+![grafana view](./images/grafana.jpeg)
 
 ### Key Features
 - **AHT10 Temperature & Humidity Sensor** - High-precision sensor readings
@@ -139,7 +141,7 @@ UDP Server (Remote PC/Host)
 Edit `components/udp_sender/src/udp_sender.c`:
 
 ```c
-#define UDP_SERVER_IP "192.168.1.10"    // Your PC's IP address
+#define UDP_SERVER_IP "<PC IP>"    // Your PC's IP address
 #define UDP_SERVER_PORT 5005             // Listening port
 #define SEND_INTERVAL_MS 5000            // Data send interval (ms)
 ```
@@ -308,53 +310,23 @@ I (2504) udp_sender: Sent 65 bytes: {"temperature":22.1,"humidity":60.36,"timela
 > **Note:** Reserved space for project images. Please add the following:
 
 ### Hardware Enclosure
-![Enclosure](./images/enclosure.jpg)
+![Enclosure](./images/enclosure.jpeg)
 *Add image of the complete assembled unit in its enclosure*
 
 ### PCB Design
-![PCB Top](./images/pcb_top.jpg)
+![PCB Top](./images/enclosure_opened.jpeg)
 *Add image of PCB top side showing component placement*
 
-![PCB Bottom](./images/pcb_bottom.jpg)
+![PCB Bottom](./images/pcb_bottom.png)
 *Add image of PCB bottom side showing traces and connections*
 
 ### Circuit Schematic
 ![Schematic](./images/schematic.png)
 *Add detailed circuit schematic showing all connections*
 
-### Block Diagram
-![Block Diagram](./images/block_diagram.png)
-*Add system architecture block diagram*
 
----
 
-## Testing Checklist
 
-- [ ] ESP32C3 board powers on correctly
-- [ ] Serial monitor shows initialization sequence
-- [ ] Ethernet link is established
-- [ ] ESP32 obtains IP address via DHCP
-- [ ] AHT10 sensor is initialized successfully
-- [ ] Temperature and humidity readings are reasonable
-- [ ] UDP packets are transmitted to PC
-- [ ] PC receives and parses JSON data correctly
-- [ ] Data updates at the configured interval
-
----
-
-## Future Enhancements
-
-- [ ] Web dashboard for real-time data visualization
-- [ ] Data logging to SD card
-- [ ] MQTT protocol support
-- [ ] Multiple sensor support
-- [ ] Deep sleep mode for power efficiency
-- [ ] OTA (Over-The-Air) firmware updates
-- [ ] SSL/TLS encryption for UDP
-- [ ] BMP180 pressure sensor integration
-- [ ] Data buffering during network outages
-
----
 
 ## Dependencies
 
