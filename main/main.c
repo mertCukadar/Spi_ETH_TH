@@ -119,15 +119,14 @@ void app_main(void)
         ESP_ERROR_CHECK(esp_eth_start(eth_handles[i]));
     }
 
-    // 4) I2C + AHT10 init (tek sefer)
+    // 4) I2C + AHT10 init
     i2c_init();
     vTaskDelay(pdMS_TO_TICKS(75));
 
     esp_err_t ret = aht10_cmd_init();
     if (ret != ESP_OK) {
         ESP_LOGW(MAIN_TAG, "AHT10 init failed: %s", esp_err_to_name(ret));
-        // Sensör yoksa yine de UDP başlatabilirsin ama payload boş olur.
-        // Şimdilik devam edelim.
+        
     }
 
     // 5) UDP sender task
